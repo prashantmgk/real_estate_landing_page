@@ -1,5 +1,9 @@
-import TeamPhoto from '../../public/images/team/team_1.jpg'
-import TeamCard from '../common/TeamCard'
+import TeamPhoto1 from '/images/team/team_1.jpg';
+import TeamPhoto2 from '/images/team/team_2.jpg';
+import TeamPhoto3 from '/images/team/team_3.jpg';
+import TeamPhoto4 from '/images/team/team_4.jpg';
+
+import TeamCard from '../common/TeamCard';
 
 const team = {
    title: 'कार्यकर्ता',
@@ -8,45 +12,42 @@ const team = {
          id: 1,
          name: 'ओम बाहादुर पुन',
          role: 'अध्यछे',
-         image: TeamPhoto
+         image: TeamPhoto3,
       },
       {
          id: 2,
-         name: 'ओम बाहादुर पुन',
-         role: 'अध्यछे',
-         image: TeamPhoto
+         name: 'किशोर प्रेम गर्बुझा',
+         role: 'बरिष्ठ सल्लाहकार',
+         image: TeamPhoto2,
       },
       {
          id: 3,
-         name: 'ओम बाहादुर पुन',
-         role: 'अध्यछे',
-         image: TeamPhoto
+         name: ' खिम बहादुर फकामी पुन',
+         role: 'कार्यकार निर्देशक',
+         image: TeamPhoto1,
       },
       {
          id: 4,
-         name: 'ओम बाहादुर पुन',
-         role: 'अध्यछे',
-         image: TeamPhoto
+         name: 'लोक बहादुर फकामी पुन',
+         role: 'सचिव',
+         image: TeamPhoto4,
       },
-      {
-         id: 5,
-         name: 'ओम बाहादुर पुन',
-         role: 'अध्यछे',
-         image: TeamPhoto
-      },
-   ]
-}
+   ],
+};
 const OurTeam = () => {
-  return (
-      <section className="lg:px-32 pb-20">
-         < h2 className = "text-center font-bold text-h2 font-nepali tracking-tight py-8" > {team.title} </h2>
-         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-center items-center">
+   return (
+      <section className="pb-20 lg:px-32">
+         <h2 className="py-8 text-center font-nepali text-h2 font-bold tracking-tight">
+            {' '}
+            {team.title}{' '}
+         </h2>
+         <div className="mt-8 grid grid-cols-1 items-center justify-center gap-6 md:grid-cols-2 lg:grid-cols-4">
             {team.members.map((member) => (
-               <TeamCard key={member.id} member={member}/>
+               <TeamCard key={member.id} member={member} />
             ))}
          </div>
       </section>
-  )
-}
+   );
+};
 
-export default OurTeam
+export default OurTeam;

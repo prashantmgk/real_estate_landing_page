@@ -1,5 +1,5 @@
 
-import House from '../../public/images/house.png';
+import House from '/images/house.png';
 import { LuCheckCircle } from "react-icons/lu";
 
 const services = [

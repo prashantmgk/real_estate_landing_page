@@ -1,10 +1,10 @@
-import Asus from "../../public/images/logos/asus.svg"
-import BlackBerry from "../../public/images/logos/blackberry.svg"
-import Nokia from "../../public/images/logos/nokia.svg"
-import Samsung from "../../public/images/logos/samsung.svg"
-import Sony from "../../public/images/logos/sony.svg"
-import Toshiba from "../../public/images/logos/toshiba.svg"
-import Virgin from "../../public/images/logos/virgin.svg"
+import Asus from "/images/logos/asus.svg"
+import BlackBerry from "/images/logos/blackberry.svg"
+import Nokia from "/images/logos/nokia.svg"
+import Samsung from "/images/logos/samsung.svg"
+import Sony from "/images/logos/sony.svg"
+import Toshiba from "/images/logos/toshiba.svg"
+import Virgin from "/images/logos/virgin.svg"
 
 const logos = [
    { src: Asus, alt: 'Asus' },

@@ -1,4 +1,4 @@
-import Team from '../../public/images/Team.jpeg'
+import Team from '/images/Team.jpeg'
 
 
 const WhyChooseUs = () => {

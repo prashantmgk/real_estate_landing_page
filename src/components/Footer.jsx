@@ -1,4 +1,4 @@
-import Icon from "../../public/images/brand/icon.png"
+import Icon from "/images/brand/icon.png"
 import { FaFacebook, FaWhatsapp, FaViber } from "react-icons/fa";
 import { MdCall } from "react-icons/md";
 

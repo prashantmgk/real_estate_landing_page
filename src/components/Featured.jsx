@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import PropertyCard from '../common/PropertyCard';
 
-import PorpertyImage from '../../public/images/kapan-6.jpg'
+import PorpertyImage from '/images/kapan-6.jpg'
 
 const PropertyDetails = [
    {
