@@ -13,25 +13,33 @@ const team = {
          name: 'ओम बाहादुर पुन',
          role: 'अध्यछे',
          image: TeamPhoto3,
+         contact: '+977-9857639529',
+         samparka: '९८५७६३९५२९',
       },
       {
          id: 2,
          name: ' खिम बहादुर फकामी पुन',
          role: 'कार्यकारी निर्देशक',
          image: TeamPhoto1,
+         contact: '+977-9863066196',
+         samparka: '९८६३०६६१९६',
       },
       {
          id: 3,
-         name: 'लोक बहादुर फगामी पुन',
+         name: 'लोक बहादुर फकामी पुन',
          role: 'सचिव',
          image: TeamPhoto4,
+         contact: '+977-9805847602',
+         samparka: '९८०५८४७६०२',
       },
       {
          id: 4,
-         name: 'किशोर प्रेम गर्बुजा',
+         name: 'किशोर प्रेम गर्बुझा',
          role: 'बरिष्ठ सल्लाहकार',
          image: TeamPhoto2,
-      },
+         contact: '+977-9841234567',
+         samparka: '९८५७६३९५२९',
+      }
    ],
 };
 const OurTeam = () => {
