@@ -27,11 +27,12 @@ const Navbar = () => {
             कार्यकर्ता
           </li>
           <li className="text-md font-normal tracking-wide font-nepali">
-            हाम्रा सेवाहरु
+             सम्पर्क
           </li>
           <li className="text-md font-normal tracking-wide font-nepali">
-            सम्पर्क
+          संस्था जानकारी 
           </li>
+       
         </ul>
       </nav>
     </header>
