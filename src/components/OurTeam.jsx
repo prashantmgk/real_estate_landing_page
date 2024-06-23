@@ -18,14 +18,6 @@ const team = {
       },
       {
          id: 2,
-         name: 'किशोर प्रेम गर्बुझा',
-         role: 'बरिष्ठ सल्लाहकार',
-         image: TeamPhoto2,
-         contact: '+977-9841234567',
-         samparka: '९८५७६३९५२९',
-      },
-      {
-         id: 3,
          name: ' खिम बहादुर फकामी पुन',
          role: 'कार्यकार निर्देशक',
          image: TeamPhoto1,
@@ -33,12 +25,20 @@ const team = {
          samparka: '९८६३०६६१९६',
       },
       {
-         id: 4,
+         id: 3,
          name: 'लोक बहादुर फकामी पुन',
          role: 'सचिव',
          image: TeamPhoto4,
          contact: '+977-9805847602',
          samparka: '९८०५८४७६०२',
+      },
+      {
+         id: 4,
+         name: 'किशोर प्रेम गर्बुझा',
+         role: 'बरिष्ठ सल्लाहकार',
+         image: TeamPhoto2,
+         contact: '+977-9841234567',
+         samparka: '९८५७६३९५२९',
       },
    ],
 };
