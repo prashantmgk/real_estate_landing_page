@@ -33,21 +33,6 @@ const TeamCard = ({ member }) => {
             {member.role}
          </p>
       </div>
-      // <div className="mb-4 shrink-0 text-center">
-      //    <div className="team-container overflow-hidden">
-      //       <img
-      //          className="team-image w-ful h-80 scale-105 object-cover transition-transform duration-300 ease-in-out hover:scale-100"
-      //          src={member.image}
-      //          alt={member.name}
-      //       />
-      //    </div>
-      //    <h3 className="pt-8 font-nepali text-h4 font-semibold">
-      //       {member.name}
-      //    </h3>
-      //    <p className="pt-2 font-nepali text-p font-medium tracking-wider">
-      //       {member.role}
-      //    </p>
-      // </div>
    );
 };
 
