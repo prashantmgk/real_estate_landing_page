@@ -1,5 +1,5 @@
 import Icon from "/images/brand/icon.png"
-import { FaFacebook, FaWhatsapp, FaViber } from "react-icons/fa";
+import { FaFacebook, FaWhatsapp, FaViber,FaYoutube } from "react-icons/fa";
 import { MdCall } from "react-icons/md";
 
 const Footer = () => {
@@ -29,9 +29,11 @@ const Footer = () => {
                   </ul>
                   <br />
                   <ul className="text-slate-300 text-xl font-light flex gap-4">
-                     <li className="hover:text-blue-300 duration-200"><a href=""><FaFacebook/></a></li>
+                     <li className="hover:text-blue-300 duration-200"><a target = "_blank" href="https://www.facebook.com/profile.php?id=61557708607039"><FaFacebook/></a></li>
                      <li className="hover:text-blue-400 duration-200"><a href=""><FaViber/></a></li>
                      <li className="hover:text-green-400 duration-200"><a href=""><FaWhatsapp/></a></li>
+                     <li className="hover:text-green-400 duration-200"><a target="_blank" href="https://www.youtube.com/watch?v=wuLXoyPFFJY&ab_channel=KrishnaPrasadGautam"><FaYoutube/></a></li>
+                    
                   </ul>
                </div>
                <div className="ml-40">
@@ -49,11 +51,19 @@ const Footer = () => {
                      <br />
                      <li className="flex items-center gap-2">
                         <MdCall/>
-                        <a href="tel:+977-61-560-560" className="hover:underline">+977-61-560-560</a>
+                        <a href="tel:+977-9856039529" className="hover:underline">+977-9856039529</a>
                      </li>
                      <li className="flex items-center gap-2">
                         <MdCall/>
-                        <a href="tel:+977-61-560-560" className="hover:underline">+977-61-560-560</a>
+                        <a href="tel:+977-9863066196" className="hover:underline">+977-9863066196</a>
+                     </li>
+                     <li className="flex items-center gap-2">
+                        <MdCall/>
+                        <a href="tel:+977-9805847602" className="hover:underline">+977-9805847602</a>
+                     </li>
+                     <li className="flex items-center gap-2">
+                        <MdCall/>
+                        <a href="tel:+977-9846034768" className="hover:underline">+977-9846034768</a>
                      </li>
                   </ul>
                </div>

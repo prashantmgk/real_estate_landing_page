@@ -5,15 +5,16 @@ import Samsung from "/images/logos/samsung.svg"
 import Sony from "/images/logos/sony.svg"
 import Toshiba from "/images/logos/toshiba.svg"
 import Virgin from "/images/logos/virgin.svg"
+import companyLogo from '/images/brand/icon.png';
 
 const logos = [
-   { src: Asus, alt: 'Asus' },
-   { src: BlackBerry, alt: 'BlackBerry' },
-   { src: Nokia, alt: 'Nokia' },
-   { src: Samsung, alt: 'Samsung' },
-   { src: Sony, alt: 'Sony' },
-   { src: Toshiba, alt: 'Toshiba' },
-   { src: Virgin, alt: 'Virgin' },
+   { src: companyLogo, alt: 'Company Logo' },
+   { src: companyLogo, alt: 'BlackBerry' },
+   { src: companyLogo, alt: 'Nokia' },
+   { src: companyLogo, alt: 'Samsung' },
+   { src: companyLogo, alt: 'Sony' },
+   { src: companyLogo, alt: 'Toshiba' },
+   { src: companyLogo, alt: 'Virgin' },
 ]
 
 const SideScrolling = () => {
@@ -22,7 +23,7 @@ const SideScrolling = () => {
          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-16 [&_img]:max-w-none animate-infinite-scroll">
             {logos.map((logo, index) => (
                <li key={index}>
-                  <img className="w-16 h-auto" src={logo.src} alt={logo.alt} />
+                  <img className="w-24 h-auto" src={logo.src} alt={logo.alt} />
                </li>
             ))}
          </ul>
