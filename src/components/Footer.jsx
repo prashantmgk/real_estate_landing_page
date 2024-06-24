@@ -70,7 +70,7 @@ const Footer = () => {
             </div>
 
             <div className="mt-8 border-t border-gray-400 pt-6 flex flex-col md:flex-row md:items-center md:justify-between">
-               <div className="text-sm text-gray-500 dark:text-gray-400">© 2021 Indradhanush Investment Pvt. Ltd. All rights reserved.</div>
+               <div className="text-sm text-gray-500 dark:text-gray-400">© 2024 Indradhanush Investment Pvt. Ltd. All rights reserved.</div>
                <div className="text-sm flex mt-4 md:mt-0">
                   <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 me-8">Privacy Policy</a>
                   <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">Terms &amp; Conditions</a>

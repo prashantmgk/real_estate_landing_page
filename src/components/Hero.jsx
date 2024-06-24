@@ -1,6 +1,7 @@
 import House from '/images/hero/house.jpg';
 import Money from '/images/hero/money.jpg';
 import LandPlot from '/images/hero/land_plot.jpg';
+import Team from '/images/Team.jpeg'
 
 import { FaViber, FaWhatsapp } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -57,6 +58,7 @@ const Hero = () => {
                         <button className="bg-white px-6 py-3 rounded-full text-h1 mt-8 flex items-center justify-center gap-4">
                            <FaViber className=' text-blue-400 text-h4' />
                            <h4 className='text-h6 font-semibold text-slate-800'>Viber</h4>
+                          
                         </button>
                         <button className="bg-white px-6 py-3 rounded-full text-h1 mt-8 flex items-center justify-center gap-4">
                            <FaWhatsapp className=' text-accent-100 text-h4' />
@@ -118,7 +120,7 @@ const Hero = () => {
                   </div>
 
                   <div className='flex-2 w-full h-full'>
-                     <img className='w-full h-full object-cover object-right' src={Money} />
+                     <img className='w-full h-full object-cover object-right' src={Team} />
                   </div>
                </div>
             </SwiperSlide>
