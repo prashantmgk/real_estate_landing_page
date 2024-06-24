@@ -26,7 +26,7 @@ const team = {
       },
       {
          id: 3,
-         name: 'लोक बहादुर फकामी पुन',
+         name: 'लोक बहादुर फगामी पुन',
          role: 'सचिव',
          image: TeamPhoto4,
          contact: '+977-9805847602',
@@ -34,7 +34,7 @@ const team = {
       },
       {
          id: 4,
-         name: 'किशोर प्रेम गर्बुझा',
+         name: 'किशोर प्रेम गर्बुजा',
          role: 'बरिष्ठ सल्लाहकार',
          image: TeamPhoto2,
          contact: '+977-9841234567',
