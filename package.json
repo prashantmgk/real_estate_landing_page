@@ -10,11 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.6.0",
     "@studio-freight/react-lenis": "^0.0.47",
+    "firebase": "^10.12.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.52.0",
     "react-icons": "^5.2.1",
-    "swiper": "^11.1.4"
+    "react-router-dom": "^6.24.0",
+    "swiper": "^11.1.4",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

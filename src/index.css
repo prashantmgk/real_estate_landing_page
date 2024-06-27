@@ -5,12 +5,12 @@
 @layer base {
    @font-face {
       font-family: 'Revue';
-      src: url('//fonts/Revue\ TL\ Regular.ttf') format('truetype');
+      src: url('/public/fonts/Revue\ TL\ Regular.ttf') format('truetype');
    }
 
    @font-face {
       font-family: 'Nepali';
-      src: url('//fonts/0001\ ARAP\ \ BK\ Regular.ttf') format('truetype');
+      src: url('/public/fonts/0001\ ARAP\ \ BK\ Regular.ttf') format('truetype');
    }
 }
 
