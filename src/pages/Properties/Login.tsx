@@ -29,13 +29,14 @@ const Login = () => {
    };
 
    const onSubmit: SubmitHandler<LoginFormValues> = (data) => {
-      // SignIn(data, onSuccess);
-      console.log(data)
+      SignIn(data, onSuccess);
+      // console.log(data)
    }
 
    return (
       <div className="flex h-screen w-full items-center justify-center bg-slate-100">
          <div className="flex flex-col bg-white p-4 shadow-md">
+            <span className="loading loading-dots loading-lg flex item-center mx-auto"></span>
             <h1 className="text-h2 font-medium">Login</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                <input

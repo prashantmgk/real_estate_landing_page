@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { firebaseAuth } from "../auth/BaseConfig";
 import { createContext } from "react";
@@ -25,8 +24,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
    const [isLoading, setIsLoading] = useState<boolean>(false);
    const [isAuthLoading, setIsAuthLoading] = useState<boolean>(false);
 
-   const navigate = useNavigate();
-
    const SignUp = (creds: UserFormValues, onSuccess: () => void) => {
       setIsLoading(true);
       TAuth.SignUp(creds)
@@ -42,6 +39,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             setIsLoading(false)
          })
          .catch(error => {
+
+            console.log(error)
             if (error.code === 'auth/email-already-in-use') {
                //TODO: show an alert or console
                console.log(error.code)
@@ -49,6 +48,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             } else if (error.code === 'auth/too-many-requests') {
                //TODO: do something like an alert
                console.log(error.code)
+            } else if (error.code === 'auth/network-request-failed') {
+               console.log("worked ", error.code)
             }
             // you can check for more error like email not valid or something
             setIsLoading(false);
@@ -93,6 +94,15 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
    }
 
+   useEffect(() => {
+      const unsub = onAuthStateChanged(firebaseAuth, user => {
+         console.log("is running", user)
+         setCurrentUser(user);
+         setIsAuthLoading(false);
+      })
+
+   }, [])
+
    const authValues: IAuth = {
       user: currentUser,
       loading: isLoading,
@@ -100,15 +110,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       SignIn,
       SignOut,
    }
-
-   useEffect(() => {
-      const unsub = onAuthStateChanged(firebaseAuth, user => {
-         setCurrentUser(user);
-         setIsAuthLoading(false);
-      })
-
-      return unsub;
-   }, [])
 
    if (isAuthLoading) return <div>Loading...</div>
 

@@ -15,9 +15,9 @@ function App() {
             <Route path="/property/signup" element={<Signup />} />
 
             {/* private routes */}
-            <ProtectedRoutes>
+            <Route element={<ProtectedRoutes />}>
                <Route path="/property" element={<Dashboard />} />
-            </ProtectedRoutes>
+            </Route>
          </Routes>
       </div>
    );

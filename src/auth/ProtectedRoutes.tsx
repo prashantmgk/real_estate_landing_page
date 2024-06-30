@@ -5,7 +5,9 @@ import { useAuth } from "../store/AuthContext";
 const ProtectedRoutes = () => {
    const { user } = useAuth();
 
-   return user ? <Outlet /> : <Navigate to="/login" />; //TODO: navigate to proper login route
+   console.log("user", user)
+
+   return user ? <Outlet /> : <Navigate to="/property/login" />;
 }
 
 export default ProtectedRoutes;

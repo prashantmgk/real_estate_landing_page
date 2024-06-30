@@ -2,9 +2,15 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, se
 import { firebaseAuth } from "../BaseConfig";
 import { LoginFormValues, UserFormValues } from "../../types/types";
 
+setPersistence(firebaseAuth, browserLocalPersistence);
+
 export const SignIn = async ({ email, password }: LoginFormValues) => {
-   const res = await signInWithEmailAndPassword(firebaseAuth, email, password);
-   return res;
+   try {
+      const res = await signInWithEmailAndPassword(firebaseAuth, email, password);
+      return res;
+   } catch (error) {
+      return error;
+   }
 
 }
 
