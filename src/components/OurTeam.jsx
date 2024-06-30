@@ -37,7 +37,9 @@ const team = {
          name: 'किशोर प्रेम गर्बुजा',
          role: 'बरिष्ठ सल्लाहकार',
          image: TeamPhoto2,
-      },
+         contact: '+977-9841234567',
+         samparka: '९८५७६३९५२९',
+      }
    ],
 };
 const OurTeam = () => {

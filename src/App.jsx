@@ -5,6 +5,7 @@ import Login from './pages/Properties/Login';
 import Signup from './pages/Properties/Signup';
 import ProtectedRoutes from './auth/ProtectedRoutes';
 
+
 function App() {
    return (
       <div className="App">
