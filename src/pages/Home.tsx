@@ -12,14 +12,14 @@ import React from "react"
 const Home = () => {
    return (
       <>
-         <Navbar />
+         {/* <Navbar /> */}
          <Hero />
          <SideScrolling />
          <WhyChooseUs />
          <Featured />
          <OurServices />
          <OurTeam />
-         <Footer />
+         {/* <Footer /> */}
       </>
    )
 }

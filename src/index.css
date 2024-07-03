@@ -25,6 +25,17 @@ body {
    background-color: aliceblue;
 }
 
+.App {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+.footer {
+   margin-top: auto;
+}
+/* Scrollbar */
+
 ::-webkit-scrollbar {
    width: 4px;
 }

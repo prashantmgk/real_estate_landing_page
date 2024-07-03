@@ -48,7 +48,7 @@ const Hero = () => {
          >
             <SwiperSlide>
                <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-32">
+                  <div className="flex-6 flex flex-col gap-4 px-24">
                      <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
                         {' '}
                         घर जग्गा खरिद विक्री,
@@ -94,7 +94,7 @@ const Hero = () => {
 
             <SwiperSlide>
                <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-32">
+                  <div className="flex-6 flex flex-col gap-4 px-24">
                      <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
                         {' '}
                         निर्माण कार्यमा <span className="font-sans">-</span> घर,
@@ -140,7 +140,7 @@ const Hero = () => {
 
             <SwiperSlide>
                <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-32">
+                  <div className="flex-6 flex flex-col gap-4 px-24">
                      <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
                         {' '}
                         दक्ष्य जनशक्ति तयार <br /> तथा क्षमता अभिवृद्धिको कार्य
@@ -186,7 +186,7 @@ const Hero = () => {
 
             <SwiperSlide>
                <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-32">
+                  <div className="flex-6 flex flex-col gap-4 px-24">
                      <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
                         {' '}
                         शिक्षा, स्वास्थय लगायत उत्पादनशिल पर्यटन, यातायात,
@@ -231,7 +231,7 @@ const Hero = () => {
             </SwiperSlide>
             <SwiperSlide>
                <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-32">
+                  <div className="flex-6 flex flex-col gap-4 px-24">
                      <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
                         {' '}
                         विभिन्न कृषि तथा <br /> पशुपालनमा लगानी तथा <br />
@@ -276,7 +276,7 @@ const Hero = () => {
             </SwiperSlide>
             <SwiperSlide>
                <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-32">
+                  <div className="flex-6 flex flex-col gap-4 px-24">
                      <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
                         {' '}
                         स्वदेशी वा विदेशी <br /> वित्तिय बैंक वा संघ <br />{' '}

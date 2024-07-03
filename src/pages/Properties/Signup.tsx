@@ -1,11 +1,9 @@
 import React from "react";
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 const Signup = () => {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
-   const navigate = useNavigate();
 
    const onSubmit = async (e) => {
       e.preventDefault();

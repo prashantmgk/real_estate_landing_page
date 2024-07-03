@@ -1,33 +1,24 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, setPersistence, browserLocalPersistence } from "firebase/auth";
-import { firebaseAuth } from "../BaseConfig";
-import { LoginFormValues, UserFormValues } from "../../types/types";
+//imports
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, setPersistence, browserLocalPersistence } from 'firebase/auth';
+import { firebaseAuth } from '../BaseConfig';
+import { LoginFormValues, UserFormValues } from '../../types/types';
 
+//required if you want to keep logged in after user exits the browser or closes tab
 setPersistence(firebaseAuth, browserLocalPersistence);
 
+//Sign in functionality
 export const SignIn = async ({ email, password }: LoginFormValues) => {
-   try {
-      const res = await signInWithEmailAndPassword(firebaseAuth, email, password);
-      return res;
-   } catch (error) {
-      return error;
-   }
+   const result = await signInWithEmailAndPassword(firebaseAuth, email, password);
+   return result;
+};
 
-}
-
+//Sign up functionality
 export const SignUp = async ({ email, password }: UserFormValues) => {
+   const result = await createUserWithEmailAndPassword(firebaseAuth, email, password);
+   return result;
+};
 
-   const res = await createUserWithEmailAndPassword(firebaseAuth, email, password);
-   return res;
-}
-
+//Sign out functionality
 export const SignOut = async () => {
    await signOut(firebaseAuth);
-}
-
-const TAuth = {
-   SignIn,
-   SignOut,
-   SignUp,
-}
-
-export default TAuth;
+};

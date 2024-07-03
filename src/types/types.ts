@@ -16,6 +16,6 @@ export interface IAuth {
    loading: boolean;
    SignIn: (creds: LoginFormValues, onSuccess: () => void) => void;
    SignUp: (creds: UserFormValues, onSuccess: () => void) => void;
-   SignOut: () => void;
+   SignOut: (onSuccess: () => void) => void;
 
 } 
