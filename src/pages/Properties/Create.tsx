@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Stack, Modal, Button, NativeSelect, Group, TextInput, Textarea, NumberInput, Checkbox, SimpleGrid, Image } from '@mantine/core';
+import { Stack, Modal, Button, NativeSelect, Group, TextInput, Textarea, NumberInput, Checkbox, SimpleGrid, Image, Input } from '@mantine/core';
 import { MdAdd, MdDelete } from "react-icons/md";
-import { FaYoutube } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa"
 import { useDisclosure } from '@mantine/hooks';
 import { ImageDropzone } from '../../common/ImageDropzone';
 import { FileWithPath } from '@mantine/dropzone';
+import LocationMap from '../../common/map/LocationMap';
 
 const districts = [
    "Kaski (कास्की)",
@@ -89,11 +90,8 @@ type Facility = {
    name: string;
 };
 
-
-
 const Create = () => {
    const [openedFacility, { open: openFacility, close: closeFacility }] = useDisclosure(false);
-   const [openedVideo, { open: openVideo, close: closeVideo }] = useDisclosure(false);
 
    const [facilites, setFacilites] = React.useState<Facility[]>([
       { id: 1, name: 'Parking' },
@@ -110,15 +108,14 @@ const Create = () => {
       { id: 12, name: 'Water Well' },
    ]);
 
-   const [videoURL, setVideoURL] = useState<string[]>([""]);
-
    const [files, setFiles] = useState<FileWithPath[]>([]);
+
+   const [position, setPosition] = useState([28.2096, 83.9856]);
 
    const handleDeleteImage = (index: number) => {
 
       setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
    };
-
 
    const previews = files.map((file, index) => {
       const imageUrl = URL.createObjectURL(file);
@@ -133,7 +130,6 @@ const Create = () => {
       )
    });
 
-
    const handleAddMoreFacilities = (name: string) => {
 
       if (facilites.length >= 24) {
@@ -143,17 +139,6 @@ const Create = () => {
          return [...prevState, { id: prevState.length + 1, name }]
       })
    }
-
-   const handleAddVideoUrl = (url: string) => {
-      if (videoURL.length >= 5) {
-         //TODO: add a toaster message
-         return
-      }
-      setVideoURL(prevState => {
-         return [...prevState, url]
-      })
-   }
-
    const FacilitiesCheckboxes = ({ facilities }: { facilities: Facility[] }) => {
       const chunkSize = 5;
       const chunkedFacilities: Facility[][] = [];
@@ -178,46 +163,6 @@ const Create = () => {
          </>
       );
    };
-
-   const VideoUrlInputs = ({ urls }: { urls: string[] }) => {
-
-      const videos = urls.map((url, index) => {
-         return (
-            <div key={index} className='flex items-center w-full gap-2'>
-               <TextInput
-                  className='w-full'
-                  key={index}
-                  leftSection={<FaYoutube className='text-red-500 text-xl' />}
-                  size='md'
-                  label={`Video ${index + 1}`}
-                  radius="xs"
-                  value={url}
-                  onChange={
-                     (event) => {
-                        const value = event.currentTarget.value;
-                        if (value) {
-                           setVideoURL((prevURLs) => prevURLs.map((url, i) => i === index ? value : url))
-                        }
-                        else {
-                           setVideoURL((prevURLs) => prevURLs.filter((_, i) => i !== index))
-                        }
-                     }
-                  }
-                  placeholder="https://www.youtube.com/watch?v="
-               />
-               <Button className='mt-6' variant='default' size='xs' onClick={(e) => {
-                  e.preventDefault()
-                  setVideoURL((prevURLs) => prevURLs.filter((_, i) => i !== index))
-               }}>
-                  <MdDelete className='text-xl text-brand-100' />
-               </Button>
-            </div>
-         )
-      });
-
-      return videos;
-   }
-
 
    return (
       <>
@@ -247,38 +192,6 @@ const Create = () => {
                      label="Facility Name"
                      radius="xs"
                      placeholder="Parking"
-                     required
-                  />
-                  <Button type='submit'>Submit</Button>
-               </Stack>
-            </form>
-         </Modal>
-
-         <Modal
-            centered
-            opened={openedVideo}
-            onClose={closeVideo}
-            title="Add Video URL"
-            overlayProps={{
-               backgroundOpacity: 0.55,
-               blur: 3,
-            }}>
-            <form
-               onSubmit={(e) => {
-                  e.preventDefault()
-                  handleAddVideoUrl(
-                     (e.target as HTMLFormElement).querySelector('input')?.value || ''
-                  )
-                  closeVideo();
-               }
-               }>
-               <Stack gap="lg">
-                  <TextInput
-                     size='md'
-                     withAsterisk
-                     label="Video URL"
-                     radius="xs"
-                     placeholder="https://www.youtube.com/watch?v="
                      required
                   />
                   <Button type='submit'>Submit</Button>
@@ -524,23 +437,44 @@ const Create = () => {
                   </SimpleGrid>
                   <ImageDropzone setFiles={setFiles} />
 
-                  <div className='flex justify-between'>
-                     <h4 className='text-gray-400'>YouTube Videos</h4>
-                     <Button
-                        size='xs'
-                        variant='outline'
-                        onClick={(e) => {
-                           e.preventDefault()
-                           openVideo()
-                        }}>
-                        <MdAdd className='text-xl' /> &nbsp;
-                        Add Video URL
-                     </Button>
+                  <h4 className='text-gray-400'>Property Video</h4>
+
+                  <TextInput
+                     rightSection={<div className='text-gray-400'><FaYoutube className='text-red-500 text-xl' /></div>}
+                     size='md'
+                     label="Video 1"
+                     placeholder="https://www.youtube.com/watch?v=video_id"
+                  />
+
+                  <TextInput
+                     rightSection={<div className='text-gray-400'><FaYoutube className='text-red-500 text-xl' /></div>}
+                     size='md'
+                     label="Video 2"
+                     placeholder="https://www.youtube.com/watch?v=video_id"
+                  />
+
+                  <h4 className='text-gray-400'>Location</h4>
+                  <div>
+                     <LocationMap setPosition={setPosition} position={position} />
+                     <h3 className='font-semibold text-sm text-slate-500 inline-block' >Address :</h3> <span style={{ color: 'blue', fontStyle: 'italic', fontSize: '12px' }}>{position?.address || "Place the marker"} </span>
                   </div>
-                  <VideoUrlInputs urls={videoURL} />
+
+                  <TextInput
+                     label="Email Address"
+                     size='md'
+                     placeholder="johndoe@email.com"
+                  />
+
+                  <TextInput
+                     label="Phone Number"
+                     size='md'
+                     placeholder="98XX-XXX-XXX"
+                  />
+
+
 
                   <Group justify="flex-end" mt="md">
-                     <Button type="submit">Submit</Button>
+                     <Button type="submit" color='violet'>Submit</Button>
                   </Group>
                </Stack>
             </form >
