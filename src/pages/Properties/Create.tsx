@@ -1,7 +1,10 @@
-import React from 'react'
-import { Stack, Modal, Button, NativeSelect, Group, TextInput, Textarea, NumberInput, Checkbox } from '@mantine/core';
-import { MdAdd } from "react-icons/md";
+import React, { useState } from 'react'
+import { Stack, Modal, Button, NativeSelect, Group, TextInput, Textarea, NumberInput, Checkbox, SimpleGrid, Image } from '@mantine/core';
+import { MdAdd, MdDelete } from "react-icons/md";
+import { FaYoutube } from "react-icons/fa";
 import { useDisclosure } from '@mantine/hooks';
+import { ImageDropzone } from '../../common/ImageDropzone';
+import { FileWithPath } from '@mantine/dropzone';
 
 const districts = [
    "Kaski (कास्की)",
@@ -88,10 +91,10 @@ type Facility = {
 
 
 
-
-
 const Create = () => {
-   const [opened, { open, close }] = useDisclosure(false);
+   const [openedFacility, { open: openFacility, close: closeFacility }] = useDisclosure(false);
+   const [openedVideo, { open: openVideo, close: closeVideo }] = useDisclosure(false);
+
    const [facilites, setFacilites] = React.useState<Facility[]>([
       { id: 1, name: 'Parking' },
       { id: 2, name: 'Water Supply' },
@@ -107,8 +110,31 @@ const Create = () => {
       { id: 12, name: 'Water Well' },
    ]);
 
+   const [videoURL, setVideoURL] = useState<string[]>([""]);
 
-   const addMoreFacilities = (name: string) => {
+   const [files, setFiles] = useState<FileWithPath[]>([]);
+
+   const handleDeleteImage = (index: number) => {
+
+      setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
+   };
+
+
+   const previews = files.map((file, index) => {
+      const imageUrl = URL.createObjectURL(file);
+      return (
+         <div key={index} className='group relative ' >
+            <button onClick={(e) => {
+               e.preventDefault()
+               handleDeleteImage(index)
+            }} className='absolute right-2 top-2  rounded-full p-2 hidden group-hover:block bg-brand-300 text-white'><MdDelete /></button>
+            <Image className='h-48' src={imageUrl} onLoad={() => URL.revokeObjectURL(imageUrl)} />
+         </div>
+      )
+   });
+
+
+   const handleAddMoreFacilities = (name: string) => {
 
       if (facilites.length >= 24) {
          return
@@ -116,8 +142,16 @@ const Create = () => {
       setFacilites(prevState => {
          return [...prevState, { id: prevState.length + 1, name }]
       })
+   }
 
-      console.log(facilites)
+   const handleAddVideoUrl = (url: string) => {
+      if (videoURL.length >= 5) {
+         //TODO: add a toaster message
+         return
+      }
+      setVideoURL(prevState => {
+         return [...prevState, url]
+      })
    }
 
    const FacilitiesCheckboxes = ({ facilities }: { facilities: Facility[] }) => {
@@ -145,13 +179,52 @@ const Create = () => {
       );
    };
 
+   const VideoUrlInputs = ({ urls }: { urls: string[] }) => {
+
+      const videos = urls.map((url, index) => {
+         return (
+            <div key={index} className='flex items-center w-full gap-2'>
+               <TextInput
+                  className='w-full'
+                  key={index}
+                  leftSection={<FaYoutube className='text-red-500 text-xl' />}
+                  size='md'
+                  label={`Video ${index + 1}`}
+                  radius="xs"
+                  value={url}
+                  onChange={
+                     (event) => {
+                        const value = event.currentTarget.value;
+                        if (value) {
+                           setVideoURL((prevURLs) => prevURLs.map((url, i) => i === index ? value : url))
+                        }
+                        else {
+                           setVideoURL((prevURLs) => prevURLs.filter((_, i) => i !== index))
+                        }
+                     }
+                  }
+                  placeholder="https://www.youtube.com/watch?v="
+               />
+               <Button className='mt-6' variant='default' size='xs' onClick={(e) => {
+                  e.preventDefault()
+                  setVideoURL((prevURLs) => prevURLs.filter((_, i) => i !== index))
+               }}>
+                  <MdDelete className='text-xl text-brand-100' />
+               </Button>
+            </div>
+         )
+      });
+
+      return videos;
+   }
+
 
    return (
       <>
          <Modal
             centered
-            opened={opened}
-            onClose={close}
+            opened={openedFacility}
+            onClose={closeFacility}
             title="Add Facility"
             overlayProps={{
                backgroundOpacity: 0.55,
@@ -160,10 +233,10 @@ const Create = () => {
             <form
                onSubmit={(e) => {
                   e.preventDefault()
-                  addMoreFacilities(
+                  handleAddMoreFacilities(
                      (e.target as HTMLFormElement).querySelector('input')?.value || 'Facility'
                   )
-                  close()
+                  closeFacility()
 
                }
                }>
@@ -180,6 +253,39 @@ const Create = () => {
                </Stack>
             </form>
          </Modal>
+
+         <Modal
+            centered
+            opened={openedVideo}
+            onClose={closeVideo}
+            title="Add Video URL"
+            overlayProps={{
+               backgroundOpacity: 0.55,
+               blur: 3,
+            }}>
+            <form
+               onSubmit={(e) => {
+                  e.preventDefault()
+                  handleAddVideoUrl(
+                     (e.target as HTMLFormElement).querySelector('input')?.value || ''
+                  )
+                  closeVideo();
+               }
+               }>
+               <Stack gap="lg">
+                  <TextInput
+                     size='md'
+                     withAsterisk
+                     label="Video URL"
+                     radius="xs"
+                     placeholder="https://www.youtube.com/watch?v="
+                     required
+                  />
+                  <Button type='submit'>Submit</Button>
+               </Stack>
+            </form>
+         </Modal>
+
          <div className="lg:px-32 py-12 flex flex-col gap-4">
             <h1 className="text-h3 font-bold font-nepali">घर जग्गा बिक्री <span className='font-mono'>/</span> भाडामा</h1>
             <hr />
@@ -324,7 +430,7 @@ const Create = () => {
                         variant='outline'
                         onClick={(e) => {
                            e.preventDefault()
-                           open()
+                           openFacility()
                         }}>
                         <MdAdd className='text-xl' /> &nbsp;
                         Add Facility
@@ -352,7 +458,7 @@ const Create = () => {
                         className='w-1/2'
                         label="Faced Towards"
                         size='md'
-                        data={['पूर्व (East)', 'पश्चिम (West)', 'उत्तर (North)', 'दक्षिण (South)']}
+                        data={['पूर्व (East)', 'पश्चिम (West)', 'उत्तर (North)', 'दक्षिण (South)', 'उत्तर पूर्व (North East)', 'उत्तर पश्चिम (North West)', 'दक्षिण पूर्व (South East)', 'दक्षिण पश्चिम (South West)']}
                      />
 
                      <NativeSelect
@@ -371,8 +477,67 @@ const Create = () => {
                            "अपार्टमेन्ट बिल्डिङ (Apartment Building)"
                         ]}
                      />
-
                   </div>
+
+                  <hr className='my-1' />
+
+                  <h4 className='text-gray-400'>Floor & Rooms</h4>
+                  <div className='flex w-full gap-4'>
+                     <NumberInput
+                        rightSection={<div className='text-gray-400 pr-4'>Stairs</div>}
+                        className='w-1/2'
+                        size='md'
+                        label="Floors"
+                        radius="xs"
+                     />
+                     <NumberInput
+                        className='w-1/2'
+                        size='md'
+                        label="Beds"
+                        radius="xs"
+                     />
+                     <NumberInput
+                        className='w-1/2'
+                        size='md'
+                        label="Kitchen"
+                        radius="xs"
+                     />
+                     <NumberInput
+                        className='w-1/2'
+                        size='md'
+                        label="Living"
+                        radius="xs"
+                     />
+                     <NumberInput
+                        className='w-1/2'
+                        size='md'
+                        label="Bath"
+                        radius="xs"
+                     />
+                  </div>
+
+                  <hr className='my-1' />
+
+                  <h4 className='text-gray-400'>Image Gallery</h4>
+                  <SimpleGrid cols={{ base: 1, sm: 4 }} mt={previews.length > 0 ? 'xl' : 0}>
+                     {previews}
+                  </SimpleGrid>
+                  <ImageDropzone setFiles={setFiles} />
+
+                  <div className='flex justify-between'>
+                     <h4 className='text-gray-400'>YouTube Videos</h4>
+                     <Button
+                        size='xs'
+                        variant='outline'
+                        onClick={(e) => {
+                           e.preventDefault()
+                           openVideo()
+                        }}>
+                        <MdAdd className='text-xl' /> &nbsp;
+                        Add Video URL
+                     </Button>
+                  </div>
+                  <VideoUrlInputs urls={videoURL} />
 
                   <Group justify="flex-end" mt="md">
                      <Button type="submit">Submit</Button>
