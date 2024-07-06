@@ -39,13 +39,13 @@ const team = {
          image: TeamPhoto2,
          contact: '+977-9841234567',
          samparka: '९८५७६३९५२९',
-      }
+      },
    ],
 };
 const OurTeam = () => {
    return (
-      <section className="pb-20 lg:px-32">
-         <h2 className="py-8 text-center font-nepali text-h2 font-bold tracking-tight">
+      <section className="px-4 pb-20 lg:px-32">
+         <h2 className="py-8 text-center font-nepali text-h3 font-bold tracking-tight lg:text-h2">
             {' '}
             {team.title}{' '}
          </h2>

@@ -47,12 +47,11 @@ const Hero = () => {
             className="mySwiper h-full w-full"
          >
             <SwiperSlide>
-               <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-24">
-                     <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
+               <div className="flex h-full w-full flex-col-reverse items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194] lg:flex-row">
+                  <div className="flex-6 flex flex-col gap-1 p-8 px-8 lg:gap-4 lg:px-24 lg:py-0">
+                     <h1 className="text-start font-nepali text-h4 font-semibold tracking-wide text-white lg:text-h3">
                         {' '}
-                        घर जग्गा खरिद विक्री,
-                        <br /> सट्टापट्टा, प्लटिङ।{' '}
+                        घर जग्गा खरिद विक्री, सट्टापट्टा, प्लटिङ।{' '}
                      </h1>
                      <p className="mt-4 font-nepali text-p font-extralight leading-8 tracking-wide text-white">
                         पोखराको रमाइलो दृश्य र शान्त वातावरणमा आफ्नो सपनाको घर
@@ -93,12 +92,12 @@ const Hero = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-               <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-24">
-                     <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
+               <div className="flex h-full w-full flex-col-reverse items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194] lg:flex-row">
+                  <div className="flex-6 flex flex-col gap-2 px-8 py-8 lg:gap-4 lg:px-24 lg:py-0">
+                     <h1 className="text-start font-nepali text-h4 font-semibold tracking-wide text-white lg:text-h3">
                         {' '}
                         निर्माण कार्यमा <span className="font-sans">-</span> घर,
-                        बाटो, पुल आदिको <br /> तयार गरि सेवा प्रदान गर्ने।{' '}
+                        बाटो, पुल आदिको तयार गरि सेवा प्रदान गर्ने।{' '}
                      </h1>
                      <p className="mt-4 font-nepali text-p font-extralight leading-8 tracking-wide text-white">
                         पोखराको रमाइलो दृश्य र शान्त वातावरणमा आफ्नो सपनाको घर
@@ -139,12 +138,11 @@ const Hero = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-               <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-24">
-                     <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
+               <div className="flex h-full w-full flex-col-reverse items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194] lg:flex-row">
+                  <div className="flex-6 flex flex-col gap-2 px-8 py-8 lg:gap-4 lg:px-24 lg:py-0">
+                     <h1 className="text-start font-nepali text-h4 font-semibold tracking-wide text-white lg:text-h3">
                         {' '}
-                        दक्ष्य जनशक्ति तयार <br /> तथा क्षमता अभिवृद्धिको कार्य
-                        गर्ने।
+                        दक्ष्य जनशक्ति तयार तथा क्षमता अभिवृद्धिको कार्य गर्ने।
                      </h1>
                      <p className="mt-4 font-nepali text-p font-extralight leading-8 tracking-wide text-white">
                         पोखराको रमाइलो दृश्य र शान्त वातावरणमा आफ्नो सपनाको घर
@@ -185,12 +183,12 @@ const Hero = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-               <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-24">
-                     <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
+               <div className="flex h-full w-full flex-col-reverse items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194] lg:flex-row">
+                  <div className="flex-6 flex flex-col gap-2 px-8 py-8 lg:gap-4 lg:px-24 lg:py-0">
+                     <h1 className="text-start font-nepali text-h4 font-semibold tracking-wide text-white lg:text-h3">
                         {' '}
                         शिक्षा, स्वास्थय लगायत उत्पादनशिल पर्यटन, यातायात,
-                        <br /> ट्रेडिङ उद्योग व्यवसायमा लगानी गर्ने।
+                        ट्रेडिङ उद्योग व्यवसायमा लगानी गर्ने।
                      </h1>
                      <p className="mt-4 font-nepali text-p font-extralight leading-8 tracking-wide text-white">
                         पोखराको रमाइलो दृश्य र शान्त वातावरणमा आफ्नो सपनाको घर
@@ -229,13 +227,14 @@ const Hero = () => {
                   </div>
                </div>
             </SwiperSlide>
+
             <SwiperSlide>
-               <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-24">
-                     <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
+               <div className="flex h-full w-full flex-col-reverse items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194] lg:flex-row">
+                  <div className="flex-6 flex flex-col gap-2 px-8 py-8 lg:gap-4 lg:px-24 lg:py-0">
+                     <h1 className="text-start font-nepali text-h4 font-semibold tracking-wide text-white lg:text-h3">
                         {' '}
-                        विभिन्न कृषि तथा <br /> पशुपालनमा लगानी तथा <br />
-                        उत्पादित बस्तुहरुको बजारीकरण गर्ने।
+                        विभिन्न कृषि तथा पशुपालनमा लगानी तथा उत्पादित बस्तुहरुको
+                        बजारीकरण गर्ने।
                      </h1>
                      <p className="mt-4 font-nepali text-p font-extralight leading-8 tracking-wide text-white">
                         पोखराको रमाइलो दृश्य र शान्त वातावरणमा आफ्नो सपनाको घर
@@ -274,13 +273,14 @@ const Hero = () => {
                   </div>
                </div>
             </SwiperSlide>
+
             <SwiperSlide>
-               <div className="flex h-full w-full items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194]">
-                  <div className="flex-6 flex flex-col gap-4 px-24">
-                     <h1 className="text-start font-nepali text-h3 font-semibold tracking-wide text-white">
+               <div className="flex h-full w-full flex-col-reverse items-center justify-between overflow-hidden bg-gradient-to-tl from-[#6b2d94] to-[#2d3194] lg:flex-row">
+                  <div className="flex-6 flex flex-col gap-2 px-8 py-8 lg:gap-4 lg:px-24 lg:py-0">
+                     <h1 className="text-start font-nepali text-h4 font-semibold tracking-wide text-white lg:text-h3">
                         {' '}
-                        स्वदेशी वा विदेशी <br /> वित्तिय बैंक वा संघ <br />{' '}
-                        संस्थाबाट थोक कर्जा लिई लगानी गर्ने।
+                        स्वदेशी वा विदेशी वित्तिय बैंक वा संघ संस्थाबाट थोक
+                        कर्जा लिई लगानी गर्ने।
                      </h1>
                      <p className="mt-4 font-nepali text-p font-extralight leading-8 tracking-wide text-white">
                         पोखराको रमाइलो दृश्य र शान्त वातावरणमा आफ्नो सपनाको घर

@@ -15,8 +15,8 @@ function App() {
          <Routes>
             {/* public routes */}
             <Route path="/" element={<Home />} />
-            <Route path="/property/login" element={<Login />} />
             <Route path="/property/signup" element={<Signup />} />
+            <Route path="/property/login" element={<Login />} />
 
             {/* private routes */}
             <Route element={<ProtectedRoutes />}>

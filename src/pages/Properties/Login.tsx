@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import { LoginFormValues } from '../../types/types';
@@ -21,8 +21,14 @@ const Login = () => {
       resolver: yupResolver(schema)
    });
 
-   const { SignIn } = useContext(AuthContext);
+   const { SignIn, user } = useContext(AuthContext);
    const navigate = useNavigate();
+
+   useEffect(() => {
+      if (user) {
+         navigate("/property");
+      }
+   }, [navigate])
 
    const onSuccess = () => {
       navigate("/property");
@@ -34,8 +40,8 @@ const Login = () => {
    }
 
    return (
-      <div className="flex my-28 w-full items-center justify-center bg-slate-100">
-         <div className="flex min-w-96 flex-col gap-8 bg-white p-8 py-10 shadow-md">
+      <div className="flex my-28 w-full items-center justify-center ">
+         <div className="flex min-w-96 flex-col gap-8 bg-white p-8 py-10 border-2 border-slate-200 rounded-sm">
             <h1 className="text-h3 font-medium">Login</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                <input

@@ -6,6 +6,7 @@ import React from 'react';
 const PrivateRoutes = () => {
    const { user } = useContext(AuthContext);
 
+
    return user ? <Outlet /> : <Navigate to="/property/login" />;
 };
 
