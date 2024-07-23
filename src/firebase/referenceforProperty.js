@@ -17,7 +17,7 @@ const PropertyForm = () => {
   });
   const [files, setFiles] = useState([]);
 
-  const handleChange = (e) => {
+// x  const handleChange = (e) => {
     const { name, value } = e.target;
     setProperty({
       ...property,
