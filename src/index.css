@@ -5,12 +5,12 @@
 @layer base {
    @font-face {
       font-family: 'Revue';
-      src: url('//fonts/Revue\ TL\ Regular.ttf') format('truetype');
+      src: url('/public/fonts/Revue\ TL\ Regular.ttf') format('truetype');
    }
 
    @font-face {
       font-family: 'Nepali';
-      src: url('//fonts/0001\ ARAP\ \ BK\ Regular.ttf') format('truetype');
+      src: url('/public/fonts/0001\ ARAP\ \ BK\ Regular.ttf') format('truetype');
    }
 }
 
@@ -24,6 +24,17 @@ body {
    box-sizing: border-box;
    background-color: aliceblue;
 }
+
+.App {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+.footer {
+   margin-top: auto;
+}
+/* Scrollbar */
 
 ::-webkit-scrollbar {
    width: 4px;
