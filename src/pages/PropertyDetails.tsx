@@ -4,11 +4,13 @@ import { PropertyExtended } from '../types/types';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../auth/BaseConfig';
 import { FaTags, FaPhone, FaBed, FaBuilding, FaUtensils, FaCouch, FaBath, FaPencilRuler, FaCompass } from "react-icons/fa";
+import { MdCheckBox } from "react-icons/md";
+import LocationMap from '../common/map/LocationMap';
 
 const PropertyDetails = () => {
-   const docRef = doc(db, "properties", "5HO6FFdEw44J3wxrjxZ6");
+   const docRef = doc(db, "properties", "sVSOKDWvVgjl9tvX2n0H");
    const [property, setProperty] = React.useState<PropertyExtended | null>(null);
-
+   let latAndLng;
    useEffect(() => {
       const getProperty = async () => {
          const docSnap = await getDoc(docRef);
@@ -18,10 +20,16 @@ const PropertyDetails = () => {
       getProperty();
    }, []);
 
+   if (property) {
+      console.log(latAndLng, " before");
+      latAndLng = [property.location?.lat ?? 27.700769, property.location?.lng ?? 85.3240];
+      console.log([property.location?.lat, property.location?.lng]);
+      console.log(latAndLng, " after");
+   }
 
    return (
-      <div className='mx-8 lg:mx-48 my-8 flex justify-center flex-col gap-8'>
-         <h1 className='text-3xl font-semibold'>{property?.title}</h1>
+      <div className='mx-8 lg:mx-60 my-8 flex justify-center flex-col gap-8'>
+         <h1 className='text-3xl font-semibold text-brand-100'>{property?.title}</h1>
          <ImageGallery images={property?.images} />
          <div className='flex justify-between'>
             <div>
@@ -101,9 +109,41 @@ const PropertyDetails = () => {
                </div>
             </div>
          </div>
+         <div className='w-full '>
+            <h2 className='text-xl font-semibold mb-4'>Facilites</h2>
+            <ul
+               className='grid grid-cols-2 md:grid-cols-4 gap-y-4 max-h-40 overflow-y-scroll scrollbar-hide'
+            >
+               {
+
+                  property?.facilities.map((facility, index) => {
+                     return (
+                        <div key={`${facility} - ${index}`} className='flex items-center gap-1'>
+                           <MdCheckBox className='pt-1 text-2xl text-accent-100' />
+                           <li className=' text-md font-medium text-slate-800' >{facility}</li>
+                        </div>
+                     )
+                  })
+               }
+            </ul>
+         </div>
          <div>
             <h2 className='text-xl font-semibold mb-4'>Description</h2>
-            <p className='text-slate-600'>{property?.description}</p>
+            <p className='text-slate-700'>{property?.description}</p>
+         </div>
+         <div>
+            <h2 className='text-xl font-semibold mb-4'>Map Location</h2>
+            {
+               latAndLng && (
+                  <>
+                     <LocationMap position={latAndLng} draggable={false} />
+                     <h3 className='font-semibold text-base text-slate-500 inline-block mt-2' >Address :</h3> <span style={{ color: 'blue', fontStyle: 'italic', fontSize: '14px' }}>{property?.address} </span>
+                  </>
+               )
+            }
+         </div>
+         <div className='w-full lg:w-9/12'>
+            <video src={property?.videos} controls />
          </div>
       </div >
    )

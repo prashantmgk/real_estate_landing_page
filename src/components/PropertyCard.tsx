@@ -50,8 +50,8 @@ const OurPropertyCard = ({ property }: { property: PropertyExtended }) => {
                   </h3>
 
                   {/* <h3 className="font-bold font-nepali text-nowrap "> */}
-                  <h3 className="font-bold text-nowrap ">
-                     Rs. {property.priceInNumber}
+                  <h3 className="font-semibold text-nowrap ">
+                     Rs. {property.priceInNumber.toLocaleString('en-IN')}
                   </h3>
                </div>
                <div className="facilities flex" style={{ overflow: 'scroll', scrollbarWidth: 'none' }}>

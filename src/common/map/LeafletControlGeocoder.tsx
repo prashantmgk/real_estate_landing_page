@@ -6,7 +6,7 @@ import "leaflet-control-geocoder/dist/Control.Geocoder.js";
 
 import icon from "./constants";
 
-export default function LeafletControlGeocoder({ setPosition }) {
+export default function LeafletControlGeocoder({ setPosition, draggable }) {
    const map = useMap();
    const markerRef = useRef(null);
 
@@ -16,25 +16,30 @@ export default function LeafletControlGeocoder({ setPosition }) {
       // Create a marker at the center of the map on start if it doesn't exist
       if (!markerRef.current) {
          const center = map.getCenter();
-         markerRef.current = L.marker(center, { icon, draggable: true })
-            .addTo(map)
-            .on("dragend", function () {
-               const position = (markerRef.current as L.Marker)?.getLatLng();
-               geocoder.reverse(
-                  position,
-                  map.options.crs.scale(map.getZoom()),
-                  (results) => {
-                     const result = results[0];
-                     if (result) {
-                        setPosition({
-                           lat: position.lat,
-                           lng: position.lng,
-                           address: result.name,
-                        });
+         if (!draggable) {
+            markerRef.current = L.marker(center, { icon })
+               .addTo(map);
+         } else {
+            markerRef.current = L.marker(center, { icon, draggable: true })
+               .addTo(map)
+               .on("dragend", function () {
+                  const position = (markerRef.current as L.Marker)?.getLatLng();
+                  geocoder.reverse(
+                     position,
+                     map.options.crs.scale(map.getZoom()),
+                     (results) => {
+                        const result = results[0];
+                        if (result) {
+                           setPosition({
+                              lat: position.lat,
+                              lng: position.lng,
+                              address: result.name,
+                           });
+                        }
                      }
-                  }
-               );
-            });
+                  );
+               });
+         }
       }
 
       const geocoderControl = L.Control.geocoder({
