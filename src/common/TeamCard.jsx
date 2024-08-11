@@ -15,7 +15,7 @@ const TeamCard = ({ member }) => {
             </a>
             <div className="team-container h-full w-full">
                <main className="flex h-full w-full flex-col items-center justify-center">
-                  <p className="font-nepali">सम्पर्क नम्बर :</p>
+                  <p className="font-nepali">सम्पर्क नम्बर</p>
                   <div className="mt-4 flex items-center gap-2">
                      <MdCall className="text-h4" />
                      <p className="fontlight font-nepali text-h5">

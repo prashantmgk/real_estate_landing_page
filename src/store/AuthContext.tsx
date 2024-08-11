@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useState } from "react";
 import { firebaseAuth } from "../auth/BaseConfig";
 import { IAuth, LoginFormValues, UserFormValues } from "../types/types";
 import { User, onAuthStateChanged } from "firebase/auth";
-
+import { Loader } from "@mantine/core";
 import { SignIn, SignUp, SignOut } from "../auth/services/AuthService";
 
 export const AuthContext = createContext<IAuth>({
@@ -103,7 +103,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
    }, []);
 
    //If loading for the first time when visiting the page
-   if (isAuthLoading) return <p>Loading...</p>;
+   if (isAuthLoading) return (
+      <div className='fixed top-0 left-0 w-full h-full z-[10000] flex justify-center items-center'>
+         <Loader color="blue" />
+      </div>
+   )
 
    return (
       <AuthContext.Provider value={authValues}>

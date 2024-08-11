@@ -7,6 +7,7 @@ import ProtectedRoutes from './auth/ProtectedRoutes';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Create from './pages/Properties/Create';
+import PropertyDetails from './pages/PropertyDetails';
 
 function App() {
    return (
@@ -15,6 +16,7 @@ function App() {
          <Routes>
             {/* public routes */}
             <Route path="/" element={<Home />} />
+            <Route path="/details" element={<PropertyDetails />} />
             <Route path="/property/signup" element={<Signup />} />
             <Route path="/property/login" element={<Login />} />
 
