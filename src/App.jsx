@@ -16,7 +16,7 @@ function App() {
          <Routes>
             {/* public routes */}
             <Route path="/" element={<Home />} />
-            <Route path="/details" element={<PropertyDetails />} />
+            <Route path="/details/:userId" element={<PropertyDetails />} />
             <Route path="/property/signup" element={<Signup />} />
             <Route path="/property/login" element={<Login />} />
 

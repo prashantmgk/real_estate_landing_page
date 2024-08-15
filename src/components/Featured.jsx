@@ -1,53 +1,31 @@
+import { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import PropertyCard from '../common/PropertyCard';
-
-import PorpertyImage from '/images/kapan-6.jpg';
-
-const PropertyDetails = [
-   {
-      id: 1,
-      title: 'बिक्रीमा जग्गा जमिन',
-      location: 'काठमाडौं, नेपाल',
-      price: 'रू १,००,००,०००',
-      description: '5 Ropani 26+ Ft Road',
-      owner: 'Chetan Phakami Pun',
-      code: 'CI4DW6BB23',
-      image: PorpertyImage,
-   },
-   {
-      id: 2,
-      title: 'बिक्रीमा जग्गा जमिन',
-      location: 'काठमाडौं, नेपाल',
-      price: 'रू १,००,००,०००',
-      description: '5 Ropani 26+ Ft Road',
-      owner: 'Chetan Phakami Pun',
-      code: 'CI4DW6BB23',
-      image: PorpertyImage,
-   },
-
-   {
-      id: 3,
-      title: 'बिक्रीमा जग्गा जमिन',
-      location: 'काठमाडौं, नेपाल',
-      price: 'रू १,००,००,०००',
-      description: '5 Ropani 26+ Ft Road',
-      owner: 'Chetan Phakami Pun',
-      code: 'CI4DW6BB23',
-      image: PorpertyImage,
-   },
-   {
-      id: 4,
-      title: 'बिक्रीमा जग्गा जमिन',
-      location: 'काठमाडौं, नेपाल',
-      price: 'रू १,००,००,०००',
-      description: '5 Ropani 26+ Ft Road',
-      owner: 'Chetan Phakami Pun',
-      code: 'CI4DW6BB23',
-      image: PorpertyImage,
-   },
-];
+import { getDocs, collection } from 'firebase/firestore';
+import { db } from '../auth/BaseConfig';
 
 const Featured = () => {
+   const [properties, setProperties] = useState([]);
+   const propertyCollectionRef = collection(db, 'properties');
+
+   useEffect(() => {
+      const fetchProperties = async () => {
+         try {
+            const data = await getDocs(propertyCollectionRef);
+            const filteredData = data.docs.map((doc) => ({
+               ...doc.data(),
+               id: doc.id,
+            }));
+            setProperties(filteredData);
+         } catch (err) {
+            console.error(err);
+         }
+      };
+      fetchProperties();
+   }, [propertyCollectionRef]);
+
+   console.log(properties, '  properties');
+
    const scrollContainerRef = useRef(null);
 
    const handleClickNext = () => {
@@ -127,8 +105,8 @@ const Featured = () => {
                ref={scrollContainerRef}
                className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto"
             >
-               {PropertyDetails &&
-                  PropertyDetails.map((property) => (
+               {properties &&
+                  properties.map((property) => (
                      <PropertyCard key={property.id} property={property} />
                   ))}
             </div>

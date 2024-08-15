@@ -29,7 +29,7 @@ const Footer = () => {
 
                <div className="lg:ml-28">
                   <h2 className="text-normal mb-6 font-nepali font-semibold uppercase text-gray-900 dark:text-white">
-                     उपयोगी लिंकहरु
+                     उपयोगी
                   </h2>
                   <ul className="flex flex-col gap-2 text-sm font-light text-slate-300">
                      <li className="font-nepali tracking-wider">
@@ -43,6 +43,9 @@ const Footer = () => {
                      </li>
                      <li className="font-nepali tracking-wider">
                         अर्चलबोट, पोखरा
+                     </li>
+                     <li className="font-nepali tracking-wider">
+                        <a href="/property">प्रशासक पोर्टल</a>
                      </li>
                   </ul>
                   <br />

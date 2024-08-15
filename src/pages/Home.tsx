@@ -14,7 +14,6 @@ const Home = () => {
       <>
          {/* <Navbar /> */}
          <Hero />
-         <SideScrolling />
          <WhyChooseUs />
          <Featured />
          <OurServices />
